@@ -1,0 +1,88 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{hyperref}
+
+\title{Cloud and Cluster Data Management}
+
+\author{Davuluru Nandadeep, Patel Rohan, Paliwal Shweta, Kavin}
+
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We present the system profiling for Apache Cassandra. Through our profiling we intend to map DBLP to a NoSQL database and successfully run queries
+\end{abstract}
+
+\section{Data Model}
+\label{sec:modelling}
+
+
+
+\section{Query Support}
+\label{sec:queries}
+
+
+
+\section{Indexing}
+\label{sec:indexing}
+
+
+\section{Storage}
+\label{sec:storage}
+
+
+\section{Transactions and Concurrency}
+\label{sec:concurrency}
+
+
+\section{Scalability and Replication}
+\label{sec:scalability}
+
+
+\section{Platform and deployment}
+\label{sec:deploy}
+
+\begin{thebibliography}{9}
+
+\bibitem{hardware}
+\href{Cassandra Hardware specs}{http://cassandra.apache.org/doc/latest/operating/hardware.html}
+
+\bibitem{consistency}
+\href{Consistency-cassandra}{https://docs.datastax.com/en/cassandra/3.0/cassandra/dml/dmlAboutDataConsistency.html}
+
+\bibitem{replication-architecture}
+\href{replication}{https://docs.datastax.com/en/cassandra/2.1/cassandra/architecture\newline/architectureDataDistributeReplication\_c.html}
+
+\bibitem{write-update}
+\href{write-update}{https://docs.datastax.com/en/cassandra/3.0/cassandra/dml/dmlWriteUpdate.html}
+
+\bibitem{sharding-1}
+\href{sharding-1}{https://stackoverflow.com/questions/16428008/does-cassandra-support-sharding}
+
+\bibitem{sharding-2}
+\href{sharding-2}{https://medium.com/@foundev/synthetic-sharding-in-cassandra-to-deal-with-large-partitions-2124b2fd788b}
+
+\bibitem{cassandra-kubernetes}
+\href{IBM-git}{https://github.com/IBM/Scalable-Cassandra-deployment-on-Kubernetes}
+\bibitem{cassandra-multinode}
+\href{multinode}{https://www.digitalocean.com/community/tutorials/how-to-run-a-multi-node-cluster-database-with-cassandra-on-ubuntu-14-04}
+
+\bibitem{sync-async-replication}
+\href{async-repl}{http://www.paranet.com/blog/bid/133845/Difference-between-Synchronous-Asynchronous-Replication-Table}
+
+\bibitem{cassandra-drivers}
+\href{drivers}{http://cassandra.apache.org/doc/latest/getting\_started/drivers.html
+}
+\bibitem{query-execute-async}
+\href{async}{http://datastax.github.io/python-driver/api/cassandra/cluster.html\newline\#cassandra.cluster.Session.execute}
+
+\end{thebibliography}
+\end{document}
