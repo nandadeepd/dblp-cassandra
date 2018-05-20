@@ -50,6 +50,8 @@ def manageDBLP():
 		print (dblp_authors_groups.get_group(key))
 		print("\n")
 		print("\n")
+	# here, if we create an author keyspace, we would ideally insert each row with author as key
+	# and the other params such as publications, co-authors, etc. 
 
 
 def main():
