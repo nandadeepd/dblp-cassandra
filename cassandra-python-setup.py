@@ -13,15 +13,53 @@ to dev keyspace - so change accordingly.
 6. Run this script. 
 '''
 
+import pandas as pd
 from cassandra.cluster import Cluster
+pd.set_option('expand_frame_repr', False)
 
-cluster = Cluster()
-session = cluster.connect('dev')
-insert_sql = ("INSERT INTO emp (empid, name) "
-              "VALUES(%s, %s) ")
-name= "sample"
-insert_data = (123, name)
-session.execute(insert_sql, insert_data)
+KEYSPACE = 'dev'
 
-rows = session.execute('select * from emp')
-print([row for row in rows])
+
+def connect(keyspace):
+	cluster = Cluster()
+	session = cluster.connect(keyspace)
+	return session
+
+def insert(session, name, some_id):
+
+	insert_sql = ("INSERT INTO emp (empid, name) "
+	              "VALUES(%s, %s) ")
+	# name= "sample"
+	insert_data = (some_id, name)
+	session.execute(insert_sql, insert_data)
+	return 1
+
+def fetch(session):
+	return session.execute('select * from emp')
+
+
+readFile = lambda path : pd.read_csv(path, header = 'infer')
+
+
+def manageDBLP():
+	dblp_dataset = readFile('dblp-fraction.csv')
+	dblp_authors_groups = dblp_dataset.groupby(['author_name'])
+	# print(dblp_authors_groups.count())
+
+	for key, item in dblp_authors_groups:
+		print (dblp_authors_groups.get_group(key))
+		print("\n")
+		print("\n")
+
+
+def main():
+
+	session = connect(KEYSPACE)
+	success = insert(session, "John Doe", 456)
+
+	print([row for row in fetch(session)])
+
+if __name__ == '__main__':
+	main()
+
+
