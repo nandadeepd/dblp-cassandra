@@ -46,7 +46,7 @@ def findTriangles():
 		for each_co_author in co_authors[idx]:
 			co_author_publications = session.execute('select %s from auth_col_fam where aid = %d', (publication_id, each_co_author))
 			# Step 4:
-      if numpy.any(co_author_publications, publications):
+      if numpy.any(co_author_publications, publications[idx]):
 				triangle += 1
 				
 		triangles.append(triangle)
